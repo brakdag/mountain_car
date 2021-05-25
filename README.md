@@ -1,6 +1,18 @@
 # mountain_car
 This problem was first described by Andrew Moore in his PhD thesis. Port openai gym environment to javascript.
 
+## how install
+```sh
+git clone https://github.com/brakdag/mountain_car.git
+npm install
+npm start
+```
+## test in browser
+![localhost port 3000](https://localhost:3000/)
+
+
+
+
     """
     Description:
         The agent (a car) is started at the bottom of a valley. For any given
