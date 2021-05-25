@@ -57,11 +57,14 @@ class Mountain_car{
 		let flagx = (this.goal_position-this.min_position) * scale
         let flagy1 = screen_height-this._height(this.goal_position) * scale
         let flagy2 = flagy1 - 50
+        strokeWeight(1.0)
         line(flagx, flagy1, flagx, flagy2)
+        strokeWeight(0.0)
         fill("rgb(80%,80%,0%)")
         beginShape();
-        	vertex(flagx, flagy2);vertex(flagx, flagy2 - 10);vertex(flagx + 25, flagy2 - 5)
+        	vertex(flagx, flagy2+10);vertex(flagx, flagy2);vertex(flagx + 25, flagy2 + 5)
         endShape(CLOSE);
+		
 		noFill()		   
 		let clearance = 10
 		let l = carwidth / 2
@@ -73,15 +76,16 @@ class Mountain_car{
 		translate(0,-clearance)
 		translate((pos-this.min_position) * scale, screen_height-this._height(pos) * scale)
 		rotate(-Math.cos(3 * pos))
+		fill(51)
 		beginShape();
 		vertex(l,b);
 		vertex(l,t);
 		vertex(r,t);
 		vertex(t,b);
     	endShape(CLOSE);
-    	fill(0.5,0.5,0.5)
-    	circle(carwidth / 4,clearance/2-4,carheight/2.5)
-		circle(-carwidth / 4,clearance/2-4,carheight/2.5)
+    	fill("rgb(50%,50%,50%)")
+    	circle(carwidth / 4,clearance/2-4,carheight/1.25)
+		circle(-carwidth / 4,clearance/2-4,carheight/1.25)
 		noFill()
 
 

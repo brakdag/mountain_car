@@ -57,6 +57,7 @@ class Menu{
 		if (keyIsDown(RIGHT_ARROW)) { x = 2;}
 		let resp = env.step(x)
 		obs=resp.state
+		if (resp.done==1) env.reset();
 		env.draw()	
 	}
 	training(env){
