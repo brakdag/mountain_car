@@ -10,7 +10,7 @@ function preload(){
 function setup() {
 	mn  = new Menu(MENU)
 	env = new Mountain_car()
-	//sim = new Simulation()
+	sim = new Simulation()
 	createCanvas(env.viewer.width, env.viewer.height);	
 	frameRate(env.frame_rate)
 	textFont(fuente)

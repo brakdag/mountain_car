@@ -9,9 +9,11 @@ class Mountain_car{
         this.goal_velocity = 0
         this.force = 0.001
         this.gravity = 0.0025
+        this.last_u
 	}
 
 	step(action){
+		this.last_u=action
 		let position = this.state[0]
         let velocity = this.state[1]
 	    velocity += (action - 1) * this.force + Math.cos(3 * position) * (-this.gravity)
@@ -20,6 +22,8 @@ class Mountain_car{
         position = this.clip(position, this.min_position, this.max_position)
  	 	if (position == this.min_position && velocity < 0) velocity = 0
 		let done = (position >= this.goal_position) && (velocity >= this.goal_velocity)
+        this.step_count++
+        done=this.step_count>2000?1:done
         let reward = -1.0
         this.state = [position, velocity]
         return {"state":this.state,"reward":reward,"done":done}
@@ -31,6 +35,7 @@ class Mountain_car{
 	}
 
 	reset(){
+		this.step_count=0
 		this.state=[-0.6+Math.random()*0.2,0]
 		return this.state
 	}

@@ -2,7 +2,7 @@ const MENU = 4
 const TRAINING = 1
 const MANUAL = 2
 const ELITE = 3
-
+const FAST = 5
 class Menu{
 	constructor(initial_state){
 		this.status=initial_state
@@ -12,8 +12,19 @@ class Menu{
 		switch(key){			
 			case 27: this.status=MENU;break;
 			case 77: this.status=MANUAL;break;
-			case 87: this.status=TRAINING;break;
-			case 84: this.status=ELITE;break;
+			case 87: 
+						sim.train(env,obs)
+						this.status=TRAINING;
+						break;
+			case 84: 
+						this.status=ELITE;
+						sim.test(env,obs)
+						break;
+			case 70: 
+					this.status=FAST;
+					sim.fast_train(env,obs)
+					break;
+		
 		}
 	}
 	draw(env){
@@ -33,6 +44,8 @@ class Menu{
 		 text("[T] ELITE TEST.",50,180)
 		 text("[W] SIMULATION.",50,210)
 		 text("[ESC] RETURN THIS MENU.",50,240)
+		 text("[F] FAST TRAINING",50,270)
+		 	 
 	}
 	manual(env){
 		 fill(10);
@@ -47,8 +60,20 @@ class Menu{
 		env.draw()	
 	}
 	training(env){
+		let resp=sim.step(env,obs)
+		obs=resp.state
+		env.draw()
+		sim.draw()
 	}
 	elite(env){
+		let resp=sim.step(env,obs)
+		obs=resp.state
+		env.draw()
+		sim.draw()
+	}
+
+	fast(env){
+		
 	}
 }
 
