@@ -8,7 +8,7 @@ npm install
 npm start
 ```
 ## test in browser
-![localhost port 3000](https://localhost:3000/)
+[localhost port 3000](https://localhost:3000/)
 
 
 
