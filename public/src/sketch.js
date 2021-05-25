@@ -1,23 +1,28 @@
 var env
 var sim
 var obs
+var mn
+
+function preload(){
+	fuente = loadFont("./assets/VCR_OSD_MONO.ttf")
+}
 
 function setup() {
+	mn  = new Menu(MENU)
 	env = new Mountain_car()
 	//sim = new Simulation()
 	createCanvas(env.viewer.width, env.viewer.height);	
 	frameRate(env.frame_rate)
+	textFont(fuente)
 	obs=env.reset()
-	//console.log(obs)
 }
 
 function draw(){
-	clear();
-	let x=1
-	if (keyIsDown(LEFT_ARROW)) {x = 1;}
-	if (keyIsDown(RIGHT_ARROW)) { x = 2;}
-	let resp = env.step(x)
-	obs=resp.state
-	env.draw()
-	//console.log(resp)
+	clear()
+	mn.draw(env)
 }
+
+function keyPressed(){
+	mn.evaluate(keyCode)
+}
+
