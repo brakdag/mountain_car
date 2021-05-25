@@ -2,6 +2,10 @@
 This problem was first described by Andrew Moore in his PhD thesis. Port openai gym environment to javascript.
 
 ## how install
+
+* nodejs > v14.0.0
+* browser
+
 ```sh
 git clone https://github.com/brakdag/mountain_car.git
 npm install
