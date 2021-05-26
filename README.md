@@ -1,6 +1,7 @@
 # mountain_car
 This problem was first described by Andrew Moore in his PhD thesis. Port openai gym environment to javascript.
 
+![Mountaincar](https://github.com/brakdag/mountain_car/raw/main/doc/car.png)
 ## Try it now!
 [Mountain Car](https://brakdag.github.io/mountain_car/)
 
