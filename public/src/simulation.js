@@ -5,12 +5,14 @@ class Simulation{
     this.end_sim=false
     this.initial_score=2000
     this.state = 0
-    this.config={networkshape:[2,[3],2],generations:100,population:100}
+    this.config={networkshape:[2,[3],2],generations:10,population:100}
     this.Neuvol = new Neuroevolution({network:this.config.networkshape ,population:this.config.population})
     this.gen = this.Neuvol.nextGeneration();
   }
 
   train(c,obs){
+    this.Neuvol.restart() 
+    this.gen = this.Neuvol.nextGeneration();  
     this.state=1
     this.generation=0
     this.genoma=0
@@ -65,14 +67,12 @@ test(c,ob){
 }
 
 fast_train(c,obs){
-    console.log("fast Train")
-    this.train(c,obs)
-    var ob=obs
     while(1){
-      let result=this.step(c,ob)
-      ob= result.state
+      let result=this.step(c,obs)
+      obs= result.state
       if(this.end_sim) break;
     }
+    this.brain=this.gen[0].getSave()
 }
 
 

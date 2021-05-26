@@ -22,9 +22,10 @@ class Menu{
 						break;
 			case 70: 
 					this.status=FAST;
-					sim.fast_train(env,obs)
+					console.log("Fast Train worker")
+					sim.train(env,obs)
+					setTimeout(function(){sim.fast_train(env,obs)},10)
 					break;
-		
 		}
 	}
 	draw(env){
@@ -33,6 +34,7 @@ class Menu{
 			case MANUAL: this.manual(env);break;
 			case TRAINING: this.training(env);break;
 			case ELITE: this.elite(env);break;	
+			case FAST: this.fast(sim);break;
 		}
 	}
 	menu(){
@@ -72,9 +74,16 @@ class Menu{
 		env.draw()
 		sim.draw()
 	}
-
-	fast(env){
-		
+	fast(sim){
+		 fill(10);
+		 textSize(50)
+		 text("FAST TRAINING.",80,80)
+		 textSize(25)
+		 text(`Generation:${sim.generation}`,50,150)
+		 text(`Genome:${sim.genoma}`,50,180)
+		 text(`Score: ${sim.score}` ,50,210)
+		 text(".",50,240)
+		 text(".",50,270)	
 	}
 }
 
